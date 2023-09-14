@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon"  href="Logo.jpg" sizes="16x16">
+    <title>IBKAN CAPITAL</title>
+    <meta name="description" content="Te ayudamos a liquidar tu deuda">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('Cobro.jpg'); /* Agrega aquí la ruta de tu imagen de fondo */
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semi-transparente */
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #007BFF;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 15px;
+        }
+
+        .boton {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #007BFF;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+            .boton:hover {
+                background-color: #0056b3;
+                transform: scale(1.05);
+            }
+
+        h1 img {
+            margin-right: 10px; /* Espacio entre el logo y el texto */
+            height: 40px; /* Ajusta la altura del logo */
+        }
+    </style>
+</head>
+
+<body>
+    <body>
+        <div class="container">
+            <h1 class="display-4">
+                <img src="Logo.jpg" alt="Logo IBKAN CAPITAL">
+                <h1>IBKAN CAPITAL</h1>
+                <h2 class="text-primary">Esta oferta expira en 5 días</h2>
+                <p class="text-muted">Nombre: Kevin Hernandez</p>
+                <p class="text-muted">Monto a pagar: 20,000 pesos</p>
+                <p class="text-muted">Método de pago:</p>
+                <ul class="list-unstyled">
+                    <li>
+                        BENEFICIARIO:
+                        <br>
+                        IBKAN CAPTAL
+                    </li>
+                    <li>
+                        Transferencia bancaria:
+                        <br>
+                        Cuenta CLABE: 0155226499654
+                        <br>
+                        Referencia: 012231
+                    </li>
+                    <li>
+                        Depósito en ventanilla:
+                        <br>
+                        No de cuenta: 52210653
+                        <br>
+                        Referencia: 012231
+                    </li>
+
+                </ul>
+                <a href="#" class="boton" id="generate-pdf">Generar PDF</a>
+                <br>
+                <a href="#" class="boton" id="finalizar-btn" disabled>Finalizar</a>
+                <br>
+                <a href="#" class="boton" id="regresar-btn" disabled>Regresar</a>
+                <br>
+                <p class="text-muted">Si deseas atención personalizada, comunícate con nosotros al siguiente número:</p>
+                <p class="font-weight-bold">563 213 9183</p>
+</div>
+        <script>
+            let pdfGenerated = false; // Variable para rastrear si se ha generado el PDF.
+
+            document.getElementById("generate-pdf").addEventListener("click", function () {
+                const pdf = new jsPDF();
+
+                // Agrega tu contenido al PDF aquí
+                pdf.setFont("Arial", "normal");
+                pdf.setFontSize(12);
+
+                pdf.text("IBKAN CAPITAL", 105, 20, { align: "center" });
+                pdf.text("Esta oferta expira en 5 días", 105, 40, { align: "center" });
+                pdf.text("Nombre: Kevin Hernandez", 20, 70);
+                pdf.text("Monto a pagar: 20,000 pesos", 20, 90);
+                pdf.text("Método de pago:", 20, 110);
+
+                const paymentMethods = [
+                    "Transferencia bancaria:\nCuenta CLABE: 0155226499654\nReferencia: 012231",
+                    "Depósito en ventanilla:\nNo de cuenta: 52210653\nReferencia: 012231"
+                ];
+                let yOffset = 130;
+                paymentMethods.forEach(method => {
+                    pdf.text(method, 20, yOffset);
+                    yOffset += 50;
+                });
+
+                // Guardar el PDF con un nombre específico
+                pdf.save("ibkan-capital-offer.pdf");
+
+                // Marcar que el PDF se ha generado con éxito.
+                pdfGenerated = true;
+
+                // Habilitar los botones de Finalizar y Regresar una vez que se haya generado el PDF.
+                document.getElementById("finalizar-btn").disabled = false;
+                document.getElementById("regresar-btn").disabled = false;
+            });
+
+            // Agregar una validación antes de permitir avanzar a Finalizar o Regresar.
+            document.getElementById("finalizar-btn").addEventListener("click", function () {
+                if (!pdfGenerated) {
+                    alert("Por favor, genera el PDF primero.");
+                    return false; // Evitar que se realice el evento de clic si el PDF no se ha generado.
+                }
+                // Continuar con la acción de Finalizar si el PDF se ha generado.
+            });
+
+            document.getElementById("regresar-btn").addEventListener("click", function () {
+                if (!pdfGenerated) {
+                    alert("Por favor, genera el PDF primero.");
+                    return false; // Evitar que se realice el evento de clic si el PDF no se ha generado.
+                }
+                // Continuar con la acción de Regresar si el PDF se ha generado.
+            });
+        </script>
+    </body>
+
+</html>
+
+

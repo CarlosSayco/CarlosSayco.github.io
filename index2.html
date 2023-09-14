@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon"  href="Logo.jpg" sizes="16x16">
+    <title>IBKAN CAPITAL</title>
+    <meta name="description" content="Te ayudamos a liquidar tu deuda">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+             body {
+            font-family: Arial, sans-serif;
+            background-image: url('Cobro.jpg'); /* Agrega aquí la ruta de tu imagen de fondo */
+            background-size:contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #333;
+            margin: 0;
+            padding: 0;
+             }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semi-transparente */
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #007BFF;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #666;
+            margin: 10px 0;
+        }
+
+        span.debt {
+            font-weight: bold;
+            color: #007BFF;
+        }
+
+        ul.options {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 30px; /* Ajusta el padding para el tamaño deseado */
+            width: 100%; /* Para asegurar que todos los botones tengan el mismo ancho */
+            background-color: #007BFF;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        h1 img {
+            margin-right: 10px; /* Espacio entre el logo y el texto */
+            height: 40px; /* Ajusta la altura del logo */
+        }
+
+        #chat-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+        }
+
+        #whatsapp-icon {
+            font-size: 24px; /* Ajusta el tamaño del icono aquí */
+            width: 50px; /* Ancho del contenedor */
+            height: 50px; /* Alto del contenedor */
+            background-color: green;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+        }
+
+            #whatsapp-icon img {
+                width: 50px; /* Ajusta el ancho de la imagen */
+                height: 50px; /* Ajusta la altura de la imagen */
+            }
+
+            #whatsapp-icon:hover {
+                background-color: darkgreen;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="display-4">
+            <img src="Logo.jpg" alt="Logo IBKAN CAPITAL">
+            <h1 class="display-4">IBKAN CAPITAL</h1>
+            <h2 class="mb-4">Bienvenido Kevin Hernandez</h2>
+            <p class="mb-3">Estás a un paso de resolver tu situación financiera.</p>
+            <p class="mb-3">¡Tenemos increíbles descuentos y planes de pago para ti!</p>
+            <p class="mb-3">Debes un total de <span class="debt">100,000</span> pesos.</p>
+            <p class="mb-4">Elige cómo quieres que te ayudemos.</p>
+
+            <ul class="options">
+                <li><a href="index3.html" class="button">Si me interesa liquidar mi deuda</a></li>
+                <li><a href="index4.html" class="button">No soy yo, lo conozco y quiero ayudarlo</a></li>
+                <li><a href="index5.html" class="button">Tengo una aclaración</a></li>
+                <li><a href="index6.html" class="button">No lo conozco</a></li>
+                <li><a href="index.html" class="button">Salir</a></li>
+            </ul>
+    </div>
+    <div id="chat-container">
+        <div id="tawkto-chat">
+            <!-- Código de integración de Tawk.to (o tu servicio de chat preferido) -->
+        </div>
+        <a href="https://wa.me/5631826963?text=Hola%20requiero%20ayuda%20con%20mi%20credito%20en%20un%20momento%20estamos%20contigo" target="_blank" id="whatsapp-icon">
+            <img src="Tel.ico" alt="WhatsApp">
+        </a>
+        </div>
+</body>
+</html>

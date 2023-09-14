@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon"  href="Logo.jpg" sizes="16x16">
+    <title>IBKAN CAPITAL</title>
+    <meta name="description" content="te ayudamos a liquidar tu deuda">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('Cobro.jpg'); /* Agrega aquí la ruta de tu imagen de fondo */
+            background-size:contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+    
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #007BFF;
+            font-size: 2rem; /* Cambio de tamaño para pantallas pequeñas */
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 1.5rem; /* Cambio de tamaño para pantallas pequeñas */
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 15px;
+        }
+
+        .boton {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #007BFF;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .boton:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        h1 img {
+            margin-right: 10px;
+            height: 40px;
+        }
+        /* Estilos para el popup */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .popup-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 80%;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="display-4">
+            <img src="Logo.jpg" alt="Logo IBKAN CAPITAL">
+        </h1>
+        <h1>IBKAN CAPITAL</h1>
+        <h2>¿Cómo te gustaría pagar?</h2>
+        <ul>
+            <li><a href="index321.html" class="boton">Pagos semanales</a></li>
+            <li><a href="index322.html" class="boton">Pagos quincenales</a></li>
+            <li><a href="index323.html" class="boton">Pagos mensuales</a></li>
+            <li><a href="index3.html" class="boton">Regresar</a></li>
+        </ul>
+    </div>
+    <!-- Popup -->
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <p><strong>¡ATENCIÓN!</strong></p>
+            <p>Al aumentar el plazo de pagos, se te agregara un pequeño interes a tu promoción inicial.</p>
+            </div>
+    </div>
+
+    <script>
+    // Mostrar el popup al cargar la página y ocultarlo después de 7.5 segundos
+    document.addEventListener("DOMContentLoaded", function() {
+        var popup = document.getElementById("popup");
+        popup.style.display = "flex";
+        setTimeout(function() {
+            popup.style.display = "none";
+        }, 7500);
+    });
+    </script>
+</body>
+
+</html>

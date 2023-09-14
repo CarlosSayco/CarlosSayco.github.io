@@ -1,0 +1,1 @@
+alert("Por tu interes en querer liquidar tu deuda con nosotros, vas a tener descuentos especiales")

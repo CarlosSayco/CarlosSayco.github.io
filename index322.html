@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon"  href="Logo.jpg" sizes="16x16">
+    <title>IBKAN CAPITAL</title>
+    <meta name="description" content="te ayudamos a liquidar tu deuda">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('Cobro.jpg');
+            background-size:contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .boton {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #007BFF;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+            .boton:hover {
+                background-color: #0056b3;
+                transform: scale(1.05);
+            }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        header {
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            margin-top: 50px;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .popup-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            max-width: 80%;
+        }
+
+        .popup-message {
+            margin-bottom: 10px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .popup-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .popup-button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        select, input[type="number"], input[type="button"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="button"] {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #007BFF;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+       
+
+        input[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #007BFF;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        h1 img {
+            margin-right: 10px;
+            height: 40px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="display-4">
+            <img src="Logo.jpg" alt="Logo IBKAN CAPITAL">
+            IBKAN CAPITAL
+        </h1>
+    </header>
+    <div class="container">
+        <h2>NOTA: El plazo máximo de pagos es a 50 quincenas (2 años)</h2>
+        <form action="#">
+            <label for="fortnight">¿A cuántas quincenas te gustaría pagar tu promoción?</label>
+            <select name="Quincenas" id="fortnight">
+                <option value="Quincenas">Seleccione Quincenas</option>
+                <option value="6">6 Quincenas</option>
+                <option value="12">12 Quincenas</option>
+                <option value="25">25 Quincenas</option>
+                <option value="30">30 Quincenas</option>
+                <option value="50">50 Quincenas</option>
+            </select>
+            <label for="cantidad">¿Cuánto te gustaría pagar quincenalmente de tu adeudo?</label>
+            <input type="number" id="cantidad" value="">
+            <input type="button" id="boton" class="boton" value="Calcular" onclick="mostrarPopup()">
+            <a href="index32.html" class="boton">Regresar</a>
+        </form>
+    </div>
+
+    <div class="popup" id="popupPagoAceptado">
+        <div class="popup-content">
+            <p class="popup-message" id="mensajePagoAceptado"></p>
+            <a href="index311.html" class="popup-button" id="Ahora" style="display: none;">Pagar ahora</a>
+            <button class="popup-button" id="cerrarPopupPagoAceptado" onclick="cerrarPopupPagoAceptado()">Cerrar</button>
+        </div>
+    </div>
+    
+    <div class="popup" id="popupPagoMinimo">
+        <div class="popup-content">
+            <p class="popup-message" id="mensajePagoMinimo"></p>
+            <button class="popup-button" id="cerrarPopupPagoMinimo" onclick="cerrarPopupPagoMinimo()">Cerrar</button>
+            <a href="index311.html" class="popup-button" id="pagarRecomendado" style="display: none;">Aceptar </a>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var pagoMinimo = 0;
+
+        function mostrarPopup() {
+            var cantidadPago = parseFloat(document.getElementById("cantidad").value);
+            var quincenasElement = document.getElementById("fortnight");
+            var quincenas = parseFloat(quincenasElement.options[quincenasElement.selectedIndex].value);
+
+            if (!isNaN(cantidadPago) && !isNaN(quincenas)) {
+                var resultadoAlmacenado = 20000 / quincenas;
+                var popup = document.getElementById("popupPagoMinimo");
+                var resultadoPopup = document.getElementById("mensajePagoMinimo");
+                var pagarRecomendado = document.getElementById("pagarRecomendado");
+                var botonContinuar = document.getElementById("continuar");
+
+                if (cantidadPago >= resultadoAlmacenado) {
+                    calcularPagoAlmacenado(cantidadPago, quincenas)
+                    resultadoPopup.innerHTML = "¡Felicidades! Tu plan de ago fue aceptado. <br><br>Tu pago de intencion sera de  $" + pagoMinimo.toFixed(2) + ". <br><br> Tu pago semanal sera de  $" + cantidadPago.toFixed(2) + ".";
+                    var botonPagarAhora = document.getElementById("Ahora");
+                    botonPagarAhora.style.display = "inline"; // Mostrar el botón "Pagar ahora"
+                    pagarRecomendado.style.display = "inline" // Mostrar el botón solo cuando las quincenas estén entre 6 y 50
+                } else if (quincenas >= 6 && quincenas <= 50) {
+                    calcularPagoMinimo(cantidadPago, quincenas);
+                    resultadoPopup.innerHTML = "Lo sentimos, la cantidad que escogiste de pagos es muy baja. <br><br>1-Aumenta el pago Semanal. <br><br>2-Aumenta el plazo de tu convenio. <br><br>3- Te recomendamos pagar semanalmente $" + pagoMinimo.toFixed(2) + ".";
+                } 
+
+                popup.style.display = "flex";
+            } else {
+                alert("Por favor, ingresa una cantidad y selecciona el número de quincenas.");
+            }
+        }
+
+        function calcularPagoAlmacenado(cantidadPago, quincenas) {
+            var resultadoAlmacenado = 20000 / quincenas;
+
+            if (cantidadPago <= resultadoAlmacenado) {
+                if (quincenas == 6) {
+                    pagoMinimo = 20000 + (20000 * .025) / quincenas;
+                }
+                if (quincenas == 12) {
+                    pagoMinimo = 20000 + (20000 * .025) / quincenas;
+                }
+                if (quincenas == 24) {
+                    pagoMinimo = 20000 + (20000 * .025) / quincenas;
+                }
+                if (quincenas == 36) {
+                    pagoMinimo = 20000 + (20000 * .025)  / quincenas;
+                }
+                if (quincenas == 50) {
+                    pagoMinimo = 20000 + (20000 * .025)  / quincenas;
+                }
+            }
+        }
+
+        function calcularPagoMinimo(cantidadPago, quincenas) {
+            var resultadoAlmacenado = 20000 / quincenas;
+
+            if (cantidadPago <= resultadoAlmacenado) {
+                if (quincenas == 6) {
+                    pagoMinimo = (20000 + (20000 * .025)) / quincenas;
+                }
+                if (quincenas == 12) {
+                    pagoMinimo = (20000 + (20000 * .025)) / quincenas;
+                }
+                if (quincenas == 24) {
+                    pagoMinimo = (20000 + (20000 * .025)) / quincenas;
+                }
+                if (quincenas == 36) {
+                    pagoMinimo = (20000 + (20000 * .025)) / quincenas;
+                }
+                if (quincenas == 50) {
+                    pagoMinimo = (20000 + (20000 * .025)) / quincenas;
+                }
+            }
+        }
+        function cerrarPopup() {
+            var popup = document.getElementById("reintentar");
+            popup.style.display = "none";
+        }
+
+        function cerrarPopupPagoMinimo() {
+            var popupPagoMinimo = document.getElementById("popupPagoMinimo");
+            popupPagoMinimo.style.display = "none";
+        }
+
+        function cerrarReintentar() {
+            var botonReintentar = document.getElementById("reintentar");
+            botonReintentar.style.display = "none";
+            cerrarPopup();
+        }
+
+        function pedirPagoMinimo() {
+            var popupPagoMinimo = document.getElementById("popupPagoMinimo");
+            popupPagoMinimo.style.display = "flex";
+        }
+
+        function pagarMinimo() {
+            var mensajePagoMinimo = document.getElementById("mensajePagoMinimo");
+            mensajePagoMinimo.textContent = `Gracias por pagar el monto mínimo. Te sugerimos pagar $3,000 adicionales para poder aceptar tu pago mínimo.`;
+
+            // Ocultar botón de pagar mínimo
+            var botonPagarMinimo = document.getElementById("pagarMinimo");
+            botonPagarMinimo.style.display = "none";
+        }
+
+        function calcularPagoAdicional() {
+            var cantidadPagoAdicional = parseFloat(document.getElementById("pagoAdicional").value);
+
+            if (!isNaN(cantidadPagoAdicional)) {
+                var nuevoPagoMinimo = pagoMinimo - cantidadPagoAdicional;
+                if (nuevoPagoMinimo >= 2000 && nuevoPagoMinimo <= 3000) {
+                    var mensajePagoMinimo = document.getElementById("mensajePagoMinimo");
+                    mensajePagoMinimo.textContent = `Hemos calculado que podrías pagar entre $2000 y $3000 adicionales para alcanzar el pago mínimo sugerido. Puedes pagar $${cantidadPagoAdicional.toFixed(2)} extra.`;
+
+                    // Actualizar la cantidad sugerida
+                    pagoMinimo = nuevoPagoMinimo;
+
+                    // Cerrar el popup
+                    cerrarPopupPagoMinimo();
+                } else {
+                    alert("La cantidad ingresada está fuera del rango permitido.");
+                }
+            } else {
+                alert("Por favor, ingresa una cantidad válida.");
+            }
+        }
+    </script>
+</body>
+</html >

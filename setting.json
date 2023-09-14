@@ -1,0 +1,15 @@
+{
+    "liveServer.settings.root": "./",
+    "liveServer.settings.mount": [
+        ["/", "./"],
+        ["/SacActivos-segundapagina.html", "./"]
+    ],
+    "liveServer.settings.ignoreFiles": [
+        "*.scss",
+        "*.sass",
+        "*.less",
+        ".vscode/**",
+        ".git/**",
+        "node_modules/**"
+    ]
+}
